@@ -1,7 +1,7 @@
 package model;
 
 public class Conta {
-
+	//TODO
 	public final static int CONTA_CORRENTE = 0;
 	public final static int CONTA_POUPANCA = 1;
 	

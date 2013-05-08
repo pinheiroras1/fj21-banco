@@ -4,7 +4,7 @@ public class Cliente {
 	private int id;
 	private String cpf;
 	private String nome;
-	
+	//FIXME
 	public Cliente(){}
 	
 	public Cliente(String cpf,String nome){

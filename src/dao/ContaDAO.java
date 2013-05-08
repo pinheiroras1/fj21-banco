@@ -38,7 +38,6 @@ public class ContaDAO {
 			}
 			stms.execute();
 			stms.close();
-
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
