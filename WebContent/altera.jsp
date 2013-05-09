@@ -7,16 +7,34 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Altera conta</title>
 </head>
-<body>
+<body> 
 	<c:import url="cabecalho.jsp"/>
 		<form action="mvc" method="post">
-			Id : <input type="text" name="id" /> <br />
-			Titular : <input type="text" name="titular" /> <br />
-			Saldo : <input type="text" name="saldo" /> <br />
-			Tipo : <input type="text" name="tipo" /> <br />
-			<input type="hidden" name="logica" value="AlteraContaLogic" />
+	       	
+	       	<jsp:useBean id="dao" class="dao.ContaDAO"/>
+	       	<jsp:useBean id="conta" class="model.Conta"/>
+	       	
+	       	dao.byId(param.id)
+	       	
+			Id : <input type="text" name="id" value="${param.id}" /> <br />
+			Titular : <input type="text" name="titular" value="" /> <br />
+			Saldo : <input type="text" name="saldo" value=""/> <br />
+			<c:if test="${conta.tipo == 0 }">
+			    Limite : <input type="text" name="limite" value=""/> <br /> 
+			</c:if>
+<!-- 			Tipo : <input type="text" name="tipo" /> <br /> -->
+		    Tipo de Conta :
+			<select name="tipo">
+				<option value="0">Conta Corrente</option>
+				<option value="1">Conta Poupanca</option>
+				<option value="2">Conta Salario</option>
+			</select>
+			
+			<input type="hidden" name="logica" value="AlteraContaLogic" /> <br />
 			<input type="submit" value="Enviar" />
 		</form>
+		<br />
+		<a href="contas.jsp">voltar</a> <br /> <br />
 	<c:import url="rodape.jsp"/>
 </body>
 </html>

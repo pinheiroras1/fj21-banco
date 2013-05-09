@@ -10,6 +10,8 @@
 </head>
 <body>
 	<c:import url="cabecalho.jsp" />
+	<br />
+	<a href="adiciona.jsp">Cadastrar</a>
 	<jsp:useBean id="dao" class="dao.ContaDAO" />
 	<table border="1">
 		<tr>
@@ -19,13 +21,23 @@
 			<tr bgcolor="${id.count % 2 == 0 ? 'aaee88' : 'ffffff'} ">
 				<td>${conta.id}</td>
 				<td>${conta.titular}</td>
-				<td>${conta.saldo}</td>
-				<td></td>
-				<td>${conta.tipo}</td>
-				<td> </td>
+				<td>${conta.saldo}</td> 
+				<td>
+<%-- 				    <c:if test="${conta.class == 'class model.ContaCorrente'}">${conta.limite}</c:if> --%>
+				    ${ (conta.class == 'class model.ContaCorrente') ? conta.limite : '0' } 
+				</td> 
+				<td>
+				    ${ (conta.tipo == '0') ? 'CC' : 'CP'}
+				</td>
+				<td>
+					<a href="mvc?logica=RemoveContaLogic&id=${conta.id}"> Excluir </a>
+					<a href="altera.jsp?id=${conta.id}"> Alterar </a>
+				</td>
 			</tr>
 		</c:forEach>
 	</table>
+	* CC = ContaCorrente <br />
+	  CP = ContaPoupanca <br /><br /><br />
 	<c:import url="rodape.jsp" />
 </body>
 </html>

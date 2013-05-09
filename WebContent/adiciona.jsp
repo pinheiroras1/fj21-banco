@@ -8,7 +8,7 @@
 <title>Adiciona conta</title>
 </head>
 <body>
-	<c:import url="cabecalho.jsp"/>
+	<c:import url="cabecalho.jsp"/>	    
 		<form action="mvc" method="post">
 			Titular : <input type="text" name="titular" /> <br />
 			Saldo : <input type="text" name="saldo" /> <br />
@@ -21,9 +21,11 @@
 				<option value="2">Conta Salario</option>
 			</select>
 			<br />
-			<input type="hidden" name="logica" value="AdicionaContaLogic" />
+			<input type="hidden" name="logica" value="AdicionaContaLogic" /> <br />
 			<input type="submit" value="Enviar" />
 		</form>
+		<br />
+		<a href="contas.jsp">voltar</a> <br />
 	<c:import url="rodape.jsp"/>
 </body>
 </html>

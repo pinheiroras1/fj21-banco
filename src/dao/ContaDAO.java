@@ -18,7 +18,8 @@ public class ContaDAO {
 	final String insert = "insert into conta (titular,saldo,tipo,limite) values (?,?,?,?)";
 	final String byId = "select * from conta where id = ?";
 	final String deleteTitular = "delete from conta where titular = ?";
-	final String update = "update conta set limite=? where titular = ? and id = ?";
+	final String delete = "delete from conta where id = ?";
+	final String update = "update conta set titular = ?, saldo = ?, limite=? where id = ?";
 	final String select = "select * from conta";
 
 	public ContaDAO() {
@@ -65,7 +66,7 @@ public class ContaDAO {
 		}
 	}
 
-	public void remove(Conta conta) {
+	public void removeTitular(Conta conta) {
 		try {
 			PreparedStatement stms = connection.prepareStatement(deleteTitular);
 			stms.setInt(1, conta.getTitular());
@@ -76,13 +77,26 @@ public class ContaDAO {
 		}
 
 	}
+	
+	public void remove(Conta conta) {
+		try {
+			PreparedStatement stms = connection.prepareStatement(delete);
+			stms.setInt(1, conta.getId());
+			stms.execute();
+			stms.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 
+	}
+	
 	public void update(ContaCorrente conta) {
 		try {
 			PreparedStatement smts = connection.prepareStatement(update);
-			smts.setDouble(1, conta.getLimite());
-			smts.setInt(2, conta.getTitular());
-			smts.setInt(3, conta.getNumero());
+			smts.setInt(1, conta.getTitular());
+			smts.setDouble(2, conta.getSaldo());
+			smts.setDouble(3, conta.getLimite());
+			smts.setInt(4, conta.getId());
 			smts.execute();
 			smts.close();
 		} catch (SQLException e) {
@@ -90,6 +104,20 @@ public class ContaDAO {
 		}
 	}
 
+	public void update(ContaPoupanca conta) {
+		try {
+			PreparedStatement smts = connection.prepareStatement(update);
+			smts.setInt(1, conta.getTitular());
+			smts.setDouble(2, conta.getSaldo());
+			smts.setDouble(3, 0); // poupanca nao tem limite
+			smts.setInt(4, conta.getId());
+			smts.execute();
+			smts.close();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
 	public List<Conta> getLista() {
 		List<Conta> contas = new ArrayList<Conta>();
 		try {
@@ -121,4 +149,5 @@ public class ContaDAO {
 			throw new RuntimeException(e);
 		}
 	}
+
 }

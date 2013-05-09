@@ -65,10 +65,11 @@ public class testContaDAO {
 	
 	@Test
 	public void testbyIdContaCorrente(){
+		cc.setId(7);
 		cc.setLimite(100);
 		dao.update(cc);
 		cc = dao.byId(7);
-		assertEquals(1,cc.getTitular());
+		assertEquals(0,cc.getTitular());
 		assertEquals(Conta.CONTA_CORRENTE,cc.getTipo());
 		assertEquals(100, cc.getLimite(),00001);
 	}
@@ -88,6 +89,6 @@ public class testContaDAO {
 	public void testLista(){
 		List <Conta> lista = new ArrayList<Conta>();
 		lista = dao.getLista();
-		assertEquals(500,lista.get(0).getSaldo(),0001);
+		assertEquals(0,lista.get(0).getSaldo(),0001);
 	}
 }

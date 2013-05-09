@@ -1,0 +1,11 @@
+
+[] - finalizar a altera
+[] - ver erro no ambiente do notebook.
+[] - incluir teste do DBUnit
+[] - refatorar classe conta (nao instanciar)
+
+-09/05/13
+[ok] - ao listar contas (corrente) nao mostra limite
+[ok] - funcionalidades do Crud. 
+[ok] - teste quebrando.
+

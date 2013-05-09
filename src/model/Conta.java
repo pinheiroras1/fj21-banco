@@ -18,10 +18,6 @@ public class Conta {
 		if (valor > 0) this.saldo += valor;
 	}
 	
-	public int getNumero() {
-		return numero;
-	}
-
 	public double getSaldo() {
 		return saldo;
 	}
