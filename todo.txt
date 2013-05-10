@@ -1,5 +1,6 @@
 
-[] - finalizar a altera
+-10/05/13
+[] - finalizar a alteracao (Alterar)
 [] - ver erro no ambiente do notebook.
 [] - incluir teste do DBUnit
 [] - refatorar classe conta (nao instanciar)

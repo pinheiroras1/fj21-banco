@@ -12,10 +12,9 @@
 		<form action="mvc" method="post">
 	       	
 	       	<jsp:useBean id="dao" class="dao.ContaDAO"/>
-	       	<jsp:useBean id="conta" class="model.Conta"/>
-	       	
-	       	dao.byId(param.id)
-	       	
+	       	<jsp:useBean id="conta" class="model.ContaCorrente"/>
+	       	<c:set var="conta" value="${dao.getContaId(param.id)}"> </c:set>
+	      
 			Id : <input type="text" name="id" value="${param.id}" /> <br />
 			Titular : <input type="text" name="titular" value="" /> <br />
 			Saldo : <input type="text" name="saldo" value=""/> <br />

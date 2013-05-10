@@ -44,7 +44,7 @@ public class ContaDAO {
 		}
 	}
 
-	public ContaCorrente byId(int id) {
+	public ContaCorrente getContaId(int id) {
 		try {
 			PreparedStatement stms = connection.prepareStatement(byId);
 			stms.setInt(1, id);
