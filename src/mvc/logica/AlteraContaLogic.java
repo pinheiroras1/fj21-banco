@@ -10,6 +10,7 @@ import model.ContaPoupanca;
 import dao.ContaDAO;
 
 public class AlteraContaLogic implements Logica{
+	
 	public void executa(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int tipo = Integer.parseInt(request.getParameter("tipo"));
 		ContaCorrente cc = new ContaCorrente(0);

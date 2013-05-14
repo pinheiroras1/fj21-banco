@@ -14,16 +14,18 @@ import mvc.logica.Logica;
  */
 public class ControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-	protected void service(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException{
+
+	protected void service(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		String parametro = request.getParameter("logica");
-		String nomeDaClasse = "mvc.logica."+parametro;
+		String nomeDaClasse = "mvc.logica." + parametro;
 		try {
 			Class classe = Class.forName(nomeDaClasse);
 			Logica logica = (Logica) classe.newInstance();
 			logica.executa(request, response);
 		} catch (Exception e) {
-			throw new ServletException("A logica de negocios causou uma execao",e);
-		} 
+			throw new ServletException(
+					"A logica de negocios causou uma execao", e);
+		}
 	}
 }

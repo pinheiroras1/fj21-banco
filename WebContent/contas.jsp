@@ -31,7 +31,7 @@
 				</td>
 				<td>
 					<a href="mvc?logica=RemoveContaLogic&id=${conta.id}"> Excluir </a>
-					<a href="altera.jsp?id=${conta.id}"> Alterar </a>
+					<a href="mvc?logica=DadosContaLogic&id=${conta.id}&tipo=${conta.tipo}"> Alterar </a>
 				</td>
 			</tr>
 		</c:forEach>

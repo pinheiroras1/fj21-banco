@@ -68,7 +68,7 @@ public class testContaDAO {
 		cc.setId(7);
 		cc.setLimite(100);
 		dao.update(cc);
-		cc = dao.getContaId(7);
+		cc = dao.getContaCorrenteId(7);
 		assertEquals(0,cc.getTitular());
 		assertEquals(Conta.CONTA_CORRENTE,cc.getTipo());
 		assertEquals(100, cc.getLimite(),00001);
@@ -80,7 +80,7 @@ public class testContaDAO {
 		cc.setLimite(200);
 		cc.setId(7);
 		dao.update(cc);
-		cc = dao.getContaId(7);
+		cc = dao.getContaCorrenteId(7);
 		assertEquals(200, cc.getLimite(),00001);
 		
 	}

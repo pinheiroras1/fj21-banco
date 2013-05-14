@@ -44,7 +44,7 @@ public class ContaDAO {
 		}
 	}
 
-	public ContaCorrente getContaId(int id) {
+	public ContaCorrente getContaCorrenteId(int id) {
 		try {
 			PreparedStatement stms = connection.prepareStatement(byId);
 			stms.setInt(1, id);
@@ -56,8 +56,27 @@ public class ContaDAO {
 			c.setSaldo(rs.getDouble("saldo"));
 			c.setTipo(rs.getInt("tipo"));
 			if (c.getTipo() == Conta.CONTA_CORRENTE) {
-				((ContaCorrente) c).setLimite(rs.getDouble("limite"));
+				c.setLimite(rs.getDouble("limite"));
 			}
+			rs.close();
+			stms.close();
+			return c;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	public ContaPoupanca getContaPoupancaId(int id) {
+		try {
+			PreparedStatement stms = connection.prepareStatement(byId);
+			stms.setInt(1, id);
+			ResultSet rs = stms.executeQuery();
+			rs.next();
+			ContaPoupanca c = new ContaPoupanca();
+			c.setId(rs.getInt("id"));
+			c.setTitular(rs.getInt("titular"));
+			c.setSaldo(rs.getDouble("saldo"));
+			c.setTipo(rs.getInt("tipo"));
 			rs.close();
 			stms.close();
 			return c;
