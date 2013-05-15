@@ -13,8 +13,6 @@ public class AlteraContaLogic implements Logica{
 	
 	public void executa(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int tipo = Integer.parseInt(request.getParameter("tipo"));
-		ContaCorrente cc = new ContaCorrente(0);
-		ContaPoupanca cp = new ContaPoupanca();
 		ContaDAO dao = new ContaDAO();
 		
 		int id = Integer.parseInt(request.getParameter("id"));
@@ -23,6 +21,7 @@ public class AlteraContaLogic implements Logica{
 		double limite = Double.parseDouble(request.getParameter("limite"));
 		
 		if (tipo == Conta.CONTA_CORRENTE) {
+			ContaCorrente cc = new ContaCorrente(0);
 			cc.setId(id);			
 			cc.setSaldo(saldo);						
 			cc.setTitular(titular);
@@ -30,9 +29,11 @@ public class AlteraContaLogic implements Logica{
 			dao.update(cc);
 		}
 		else {
+			ContaPoupanca cp = new ContaPoupanca();			
 			cp.setId(id);
 			cp.setTipo(titular);
 			cp.setSaldo(saldo);
+			//cp.setTipo(tipo);
 			dao.update(cp);
 		}
 		RequestDispatcher rd = request.getRequestDispatcher("contas.jsp");

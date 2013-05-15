@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Conta;
+import model.ContaPoupanca;
 import dao.ContaDAO;
 
 public class RemoveContaLogic implements Logica {
@@ -12,7 +13,7 @@ public class RemoveContaLogic implements Logica {
 	public void executa(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		ContaDAO dao = new ContaDAO();
-		Conta c = new Conta();
+		Conta c = new ContaPoupanca();
 		int id = Integer.parseInt(request.getParameter("id"));
 		c.setId(id);
 		dao.remove(c);

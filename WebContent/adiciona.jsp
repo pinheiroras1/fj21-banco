@@ -14,7 +14,7 @@
 		    Id : <input type="text" name="id" readonly="readonly" value="<c:out value="${conta.id}" />" /><br /> 
 			Titular : <input type="text" name="titular" value="${conta.titular}" /> <br />
 			Saldo : <input type="text" name="saldo" value="${conta.saldo}" /> <br />
-			Limite : <input type="text" name="limite" value="${ (conta.tipo == 0) ? conta.limite : '' }"  ${ (conta.tipo ==1) ? 'readonly' : '' } /> <br />
+			Limite : <input type="text" name="limite" value="${ (conta.tipo == 0) ? conta.limite : '0' }"  ${ (conta.tipo ==1) ? 'readonly' : '' } /> <br />
 <!-- 			Tipo : <input type="text" name="tipo" /> <br /> -->
             Tipo de Conta :
 			<select name="tipo" >

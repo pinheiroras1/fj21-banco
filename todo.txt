@@ -1,9 +1,13 @@
 
--10/05/13
-[] - finalizar a alteracao (Alterar)
 [] - ver erro no ambiente do notebook.
 [] - incluir teste do DBUnit
-[] - refatorar classe conta (nao instanciar)
+
+-15/05/13
+[ok] - testAtulizaContaPoupanca - Saldo.
+[ok] - refatorar classe conta (abstract)
+
+-14/05/13
+[ok] - finalizar a alteracao (Alterar)
 
 -09/05/13
 [ok] - ao listar contas (corrente) nao mostra limite

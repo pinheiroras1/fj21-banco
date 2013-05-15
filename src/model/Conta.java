@@ -1,18 +1,14 @@
 package model;
 
-public class Conta {
+public abstract class Conta {
 	//TODO
 	public final static int CONTA_CORRENTE = 0;
 	public final static int CONTA_POUPANCA = 1;
 	
 	private int numero;
-	private Cliente titular;
+	protected Cliente titular;
 	protected double saldo;	
 	private int tipo; 
-	
-	public Conta(){
-		titular = new Cliente();
-	}
 	
 	public void deposito(double valor){
 		if (valor > 0) this.saldo += valor;

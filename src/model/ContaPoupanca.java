@@ -5,6 +5,7 @@ public class ContaPoupanca extends Conta {
 	//AFAZER
 	public ContaPoupanca(){
 		this.setTipo(CONTA_POUPANCA);
+		titular = new Cliente();
 	}
 	
 	public boolean saque(double valor) {

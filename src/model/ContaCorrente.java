@@ -6,6 +6,7 @@ public class ContaCorrente extends Conta{
 	public ContaCorrente(double limite){
 		this.limite = limite;
 		this.setTipo(CONTA_CORRENTE);
+	    titular = new Cliente();
 	}
 	
 	public boolean saque(double valor) {

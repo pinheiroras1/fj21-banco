@@ -84,6 +84,16 @@ public class testContaDAO {
 		assertEquals(200, cc.getLimite(),00001);
 		
 	}
+
+	@Test
+	public void testAtualizaContaPoupanca(){
+		cp.setTitular(1);
+		cp.setId(13);
+		cp.setSaldo(700);
+		dao.update(cp);
+		cp = dao.getContaPoupancaId(13);
+		assertEquals(700, cp.getSaldo(),00001);
+	}
 	
 	@Test
 	public void testLista(){
