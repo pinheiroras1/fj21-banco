@@ -1,6 +1,10 @@
-
+[] - cobertura de testes 100%
+[] - separa teste para cada classe (criar suite)
 [] - ver erro no ambiente do notebook.
 [] - incluir teste do DBUnit
+
+-22/05/13
+[ok] - 
 
 -15/05/13
 [ok] - testAtulizaContaPoupanca - Saldo.
